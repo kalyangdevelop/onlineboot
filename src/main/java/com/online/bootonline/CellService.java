@@ -18,8 +18,8 @@ import java.util.function.Consumer;
     public Cell updateCell(Cell cell){
         return cellRepository.save(cell);
     }
-    public void deleteCell(int id){
-         cellRepository.deleteById(id);
+    public void deleteCell(Cell cell){
+         cellRepository.delete(cell);
 
     }
 
