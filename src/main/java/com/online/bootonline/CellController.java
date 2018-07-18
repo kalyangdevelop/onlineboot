@@ -25,10 +25,11 @@ public class CellController {
         cellService.createCell(cell);
     }
 
-    @RequestMapping(value="/cell", method=RequestMethod.DELETE)
-    public void deleteCell(@RequestBody Cell cell) {
-        cellService.deleteCell(cell);
+    @RequestMapping(value="/cell/{id}", method=RequestMethod.DELETE)
+    public void deleteCell(@PathVariable int id) {
+        cellService.deleteCell(id);
     }
+
     @RequestMapping(value="/cell", method=RequestMethod.PUT)
     public void updateCell (@RequestBody Cell cell){
         cellService.updateCell(cell);

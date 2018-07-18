@@ -2,7 +2,9 @@ package com.online.bootonline;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 @RestController
 public class OrderController {
@@ -19,10 +21,22 @@ public class OrderController {
         orderService.createOrder(o);
     }
 
-    @RequestMapping(value="/orders", method=RequestMethod.DELETE)
-    public void deleteOrder(@RequestBody Order o) {
-        orderService.deleteOrder(o);
+   /* @RequestMapping(value="/orders/{id}", method=RequestMethod.DELETE)
+    public void deleteOrder(@PathVariable int id*//*, HttpServletRequest request*//*) {
+
+        orderService.deleteOrder(id);
+        *//*request.setAttribute("o",orderService.getAllOrders());
+*//*
+    }*/
+    @RequestMapping(value = "/ordersid", method= RequestMethod.GET)
+    public void deleteOrder(HttpServletRequest request, Order o){
+        Integer id = Integer.parseInt((request.getParameter("id")));
+        orderService.deleteOrder(id);
+       /* List <Order> list = orderService.getAllOrders();*/
+       /* return new ModelAndView().;*/
+
     }
+
     @RequestMapping(value="/orders", method=RequestMethod.PUT)
     public void updateOrder (@RequestBody Order o){
         orderService.updateOrder(o);

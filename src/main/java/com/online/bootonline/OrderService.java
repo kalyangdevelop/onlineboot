@@ -17,8 +17,8 @@ public class OrderService {
     public Order updateOrder (Order o){
         return orderRepository.save(o);
     }
-    public void deleteOrder(Order o){
-        orderRepository.delete(o);
+    public void deleteOrder(int id){
+        orderRepository.deleteById(id);
 
     }
 

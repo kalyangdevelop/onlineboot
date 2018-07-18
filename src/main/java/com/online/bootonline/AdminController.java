@@ -19,12 +19,15 @@ public class AdminController {
     public List<AdminLogin> getAllLogins(){
         return adminService.getAllLogins();
 
-    }
+    }/* @RequestMapping(value = "/loginone", method= RequestMethod.GET)
+    public AdminLogin getadmin(@RequestBody AdminLogin login){
+        return adminService.getadmin(login);
 
+    }*/
 
     @RequestMapping(value="/login", method=RequestMethod.DELETE)
-    public void deleteAdmin(@RequestBody AdminLogin login) {
-        adminService.deleteAdmin(login);
+    public void deleteAdmin(@RequestBody AdminLogin adminLogin) {
+        adminService.deleteAdmin(adminLogin);
     }
     @RequestMapping(value="/login", method=RequestMethod.PUT)
     public void updateAdmin (@RequestBody AdminLogin login){

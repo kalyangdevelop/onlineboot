@@ -21,6 +21,9 @@ public class AdminService {
         adminRepository.delete(login);
 
     }
+   /* public AdminLogin getadmin(AdminLogin login) {
+        return (AdminLogin) adminRepository.toString(login.getUserName() + login.getPassword());
+    }*/
     public List<AdminLogin> getAllLogins(){
         List<AdminLogin> list = new ArrayList<>();
         adminRepository.findAll().forEach(new Consumer<AdminLogin>() {
